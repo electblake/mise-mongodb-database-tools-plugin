@@ -1,27 +1,30 @@
-# mise-mongodb-database-tools-plugin
+# MongoDB Database Tools plugin for mise
 
 A Lua tool plugin for mise that installs MongoDB Database Tools from MongoDB's
 official Windows x64 ZIP archives.
+Verified with mise 2026.10.9; no separate Lua installation is needed.
 
-## Use locally
+## Installation
 
-Run from this repository in PowerShell:
+Install the plugin from GitHub, then enable the tools globally:
 
 ```powershell
-mise plugins link mongodb-database-tools .
-mise ls-remote mongodb-database-tools
-mise install mongodb-database-tools@latest
-mise exec mongodb-database-tools@latest -- mongodump --version
+mise plugins install mongodb-database-tools https://github.com/electblake/mise-mongodb-database-tools-plugin.git
+mise use --global mongodb-database-tools@latest
+mise exec -- mongodump --version
 ```
 
-To enable the tools in another project, run this from that project after linking:
+For a project-specific version, run this from the consuming project instead of
+the global activation command:
 
 ```powershell
-mise use mongodb-database-tools@latest
+mise use --pin mongodb-database-tools@latest
 ```
 
 The archive's `bin` directory is added to PATH, providing `bsondump`, `mongodump`,
 `mongoexport`, `mongofiles`, `mongoimport`, `mongorestore`, `mongostat`, and `mongotop`.
+With mise activated in your shell, run these commands directly, such as
+`mongodump --help`. Otherwise, use `mise exec -- mongodump --help`.
 
 ## Installation behavior
 
@@ -40,7 +43,7 @@ and mise's [tool plugin documentation](https://mise.jdx.dev/tool-plugin-developm
 
 ## Smoke test
 
-After linking the plugin, run:
+From a checkout of this repository, after installing the plugin, run:
 
 ```powershell
 pwsh -NoProfile -File test/smoke.ps1

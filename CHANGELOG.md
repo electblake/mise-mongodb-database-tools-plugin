@@ -13,3 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added PATH configuration for all eight Database Tools executables.
 - Added local installation documentation and a PowerShell smoke test for all eight tools.
 - Added ignore rules for local mise configuration, runtime caches, build and test artifacts, environment secrets, and editor files.
+
+### Changed
+
+- Replaced local plugin linking instructions with GitHub installation, global activation, project version pinning, and executable usage examples.
