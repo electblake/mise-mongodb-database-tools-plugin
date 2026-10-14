@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-14
+
 ### Added
 
 - Added a mise plugin for MongoDB Database Tools on Windows x64 using MongoDB's official release manifest and SHA-256-verified ZIP archives.
